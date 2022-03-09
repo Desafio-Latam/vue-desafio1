@@ -1,6 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
-
+//aca importamos  el boostrap
 Vue.config.productionTip = false;
 
 new Vue({

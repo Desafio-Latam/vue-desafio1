@@ -8,7 +8,6 @@
             Esta es mi Primera Tabla de datos con Vue
           </h1>
           {{ getData() }}
-          <h2>{{ notebook.procesador }}</h2>
         </div>
       </div>
       <div class="row">
@@ -26,14 +25,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(trabajador, i) in trabajadores" :key="i">
+              <tr v-for="(region, i) in regiones" :key="i">
                 <td>{{ i + 1 }}</td>
-                <td>{{ trabajador.comuna }}</td>
-                <td>{{ trabajador.id_comuna }}</td>
-                <td>{{ trabajador.id_provincia }}</td>
-                <td>{{ trabajador.id_region }}</td>
-                <td>{{ trabajador.provincia }}</td>
-                <td>{{ trabajador.region }}</td>
+                <td>{{ region.comuna }}</td>
+                <td>{{ region.id_comuna }}</td>
+                <td>{{ region.id_provincia }}</td>
+                <td>{{ region.id_region }}</td>
+                <td>{{ region.provincia }}</td>
+                <td>{{ region.region }}</td>
               </tr>
             </tbody>
           </table>
@@ -52,13 +51,7 @@ export default {
   name: "App",
   data() {
     return {
-      saludo: "Hola Mundo!(Estoy dentro de Vue)",
-      gatos: 2,
-      casado: false,
-      notebook: {
-        procesador: "Amd Rysen 9 4900mhz",
-      },
-      trabajadores: [],
+      regiones: [],
     };
   },
   created() {
@@ -76,7 +69,7 @@ export default {
         const data = await request.json();
         this.trabajadoresEntel = data; */
         const request = await axios.get(URL);
-        this.trabajadores = request.data;
+        this.regiones = request.data;
       } catch (error) {
         console.log(error);
       }
